@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "mkybdevsmisc"
+  },
+  "targets": {
+    "mkybdevsmisc": {
+      "hosting": {
+        "cocotore": [
+          "cocotore"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
