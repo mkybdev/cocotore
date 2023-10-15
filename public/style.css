@@ -1,0 +1,149 @@
+* {
+    font-family: 'Mochiy Pop P One';
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: #f1eee7;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    background-color: white;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    padding: 0 1rem;
+    align-items: center;
+    margin: 0;
+}
+
+header * {
+    margin: 0 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+main {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: calc(100% - 85px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-contents {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    width: 30dvw;
+    height: 30dvw;
+    border-radius: 50%;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.btn {
+    /*border: 2px solid #df8b4b;*/
+    background-color: #df8b4b;
+    border-radius: 3%;
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.object {
+    position: absolute;
+    width: 15dvw;
+    height: 15dvw;
+}
+
+.object img {
+    width: 100%;
+    height: 100%;
+}
+
+#map {
+    top: calc(50px + 5%);
+    left: 5%;
+}
+
+#mimic {
+    top: calc(50px + 5%);
+    right: 5%;
+}
+
+#yari {
+    bottom: calc(35px + 5%);
+    left: 5%;
+}
+
+#playing {
+    bottom: calc(35px + 5%);
+    right: 5%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.description {
+    border: 2px solid #df8b4b;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 50%;
+    margin-bottom: 1rem;
+}
+
+.message {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.animals td {
+    text-align: center;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    width: 30dvw;
+    height: 60dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
