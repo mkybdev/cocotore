@@ -60,12 +60,9 @@ main {
     display: flex;
     width: 30dvw;
     height: 30dvw;
-    border-radius: 50%;
-    background-color: white;
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
-    font-size: 2rem;
 }
 
 .btn {
@@ -76,6 +73,7 @@ main {
     padding: 0.5rem 1rem;
     margin: 0.5rem 0;
     font-size: 1.5rem;
+    height: fit-content;
 }
 
 .object {
@@ -128,7 +126,7 @@ footer {
 }
 
 .message {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -146,4 +144,8 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.content {
+    text-align: center;
 }
