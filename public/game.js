@@ -89,7 +89,7 @@ function turn(t) {
         document.querySelector('.content').innerHTML += `<input type="button" class="btn" onclick="phase(${t}, 0);" value="いいえ">`;
         document.getElementById('dice').addEventListener('click', () => {
             document.querySelector('.message').innerHTML = 'サイコロを振ってください';
-            document.querySelector('.content').innerHTML = '1〜3の場合は、サイコロを振った人のターン、4〜6の場合は振っていない人あるいは敵のターンから始める。<br>3体とも同じ素早さだった場合、1〜2でサイコロを振った人、3〜4で振っていない人、5〜6で敵のターンから始める。<br>そのターンを終えたらもう一回サイコロを振って残りの2人の順番を決める。<br>終わったら「次へ」を押してください';
+            document.querySelector('.content').innerHTML = '1〜3の場合は、サイコロを振った人のターン、4〜6の場合は振っていない人あるいは敵のターンから始める。<br>3体とも同じ素早さだった場合、1〜2でサイコロを振った人、3〜4で振っていない人、5〜6で敵のターンから始める。<br>そのターンを終えたらもう一回サイコロを振って残りの2人の順番を決める。<br>終わったら「次へ」を押してください<br>';
             document.querySelector('.content').innerHTML += `<input type="button" class="btn" onclick="phase(${t}, 0);" value="次へ">`;
         });
     }
@@ -97,15 +97,53 @@ function turn(t) {
 
 // 下位ターン
 function phase(t, p) {
-    document.querySelector('.message').innerHTML = '下位ターン';
-    document.querySelector('.content').innerHTML = '';
-    document.querySelector('.content').innerHTML += '<input type="button" class="btn" id="phaseBtn" value="下位ターン終了">';
-    document.getElementById('phaseBtn').addEventListener('click', () => {
-        if (p == 2)
-            turn(t+1);
-        else
-            phase(t, p+1);
-    });
+    if (p == 3)
+        turn(t+1);
+    else {
+        document.querySelector('.message').innerHTML = '下位ターン<br>敵のターンかプレイヤーのターンかを選択してください';
+        document.querySelector('.content').innerHTML = `<input type="button" class="btn" onclick="enemy(${t}, ${p})" value="敵のターン">`;
+        document.querySelector('.content').innerHTML += `<input type="button" class="btn" onclick="player(${t}, ${p})" value="プレイヤーのターン">`;
+    }
 }
+window.phase = phase;
+
+// 敵のターン
+function enemy(t, p) {
+    document.querySelector('.message').innerHTML = '敵のターン';
+    document.querySelector('.content').innerHTML = '敵行動カードをプレイヤーのどちらかが引いてください<br>カードの内容に基づいて敵を行動させてください<br>';
+    document.querySelector('.content').innerHTML += `<input type="button" class="btn" onclick="phase(${t}, ${p+1})" value="敵のターン終了">`;
+}
+window.enemy = enemy;
+
+// プレイヤーのターン
+function player(t, p) {
+    document.querySelector('.message').innerHTML = 'プレイヤーのターン';
+    const drawCard = () => {
+        document.querySelector('.content').innerHTML = '山札から1枚カードを引いてください<br>';
+        document.querySelector('.content').innerHTML += `<input type="button" class="btn" onclick="charachange()" value="次へ">`;
+    }
+    const charachange = () => {
+        document.querySelector('.content').innerHTML = 'キャラクターを交代する場合は交代するキャラクターをフィールドに召喚してください<br>';
+        document.querySelector('.content').innerHTML += `<input type="button" class="btn" onclick="equip()" value="次へ">`;
+    }
+    window.charachange = charachange;
+    const equip = () => {
+        document.querySelector('.content').innerHTML = '武器をキャラクターに付与して質問をしてください<br>終わったら武器の効果を発動してください<br>※使った武器は山札に戻してください<br>';
+        document.querySelector('.content').innerHTML += `<input type="button" class="btn" onclick="skill()" value="次へ">`;
+    }
+    window.equip = equip;
+    const skill = () => {
+        document.querySelector('.content').innerHTML = 'キャラクターのスキルを発動してください<br>';
+        document.querySelector('.content').innerHTML += `<input type="button" class="btn" onclick="attack()" value="次へ">`;
+    }
+    window.skill = skill;
+    const attack = () => {
+        document.querySelector('.content').innerHTML = '敵に攻撃してください<br>※素早さが敵の2倍以上の場合、2回攻撃できます<br>';
+        document.querySelector('.content').innerHTML += `<input type="button" class="btn" onclick="phase(${t}, ${p+1})" value="プレイヤーのターン終了">`;
+    }
+    window.attack = attack;
+    drawCard();
+}
+window.player = player;
 
 makeCard();
