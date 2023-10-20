@@ -78,8 +78,8 @@ main {
 
 .object {
     position: absolute;
-    width: 15dvw;
-    height: 15dvw;
+    width: 36dvh;
+    height: 20dvh;
 }
 
 .object img {
@@ -126,7 +126,7 @@ footer {
 }
 
 .message {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     text-align: center;
 }
